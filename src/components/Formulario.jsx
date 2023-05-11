@@ -34,7 +34,8 @@ const Formulario = () => {
             ])
         }
         //resetar inputs
-        e.target.reset()
+        setNombre("")
+        setApellido("")
     }
 
     const eliminarUsuario = (indice) => {
@@ -78,10 +79,11 @@ const Formulario = () => {
         <h2>Listado de usuarios registrados</h2>
         <ol>
                 {lista.map((elemento, index) => (
-                    <li key={index}>
+                    <li key={index} className="mt-3">
                         {elemento.nombre} {elemento.apellido}
-                        <button onClick={() => eliminarUsuario(index)}>Eliminar</button>
-                        <button className="btn btn-outline-secondary ml-3"
+                        <button className="btn btn-outline-danger ml-3 btnAction"
+                        onClick={() => eliminarUsuario(index)}>Eliminar</button>
+                        <button className="btn btn-outline-info ml-3 btnAction"
                         onClick={() => editarUsuario(index)}>Editar</button>
                     </li>
                 ))}
